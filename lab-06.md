@@ -12,7 +12,7 @@ library(tidyverse)
 
 ``` r
 Mask <- tribble(
-  ~date, ~count, 
+  ~date, ~mask_count, 
   "7/12/2020", 25.4, 
   "7/13/2020", 19.8,
   "7/14/2020", 19.7,
@@ -38,7 +38,7 @@ Mask <- tribble(
   "8/03/2020", 15.9,
 )
 no_Mask <- tribble(
-  ~date, ~count, 
+  ~date, ~No_mask_count, 
   "7/12/2020", 9.8, 
   "7/13/2020", 9.1,
   "7/14/2020", 9.3,
@@ -63,7 +63,29 @@ no_Mask <- tribble(
   "8/02/2020", 8.9,
   "8/03/2020", 9.1,
 )
+graph_data <-   full_join(Mask,no_Mask)
 ```
+
+    ## Joining, by = "date"
+
+``` r
+print(graph_data)
+```
+
+    ## # A tibble: 23 × 3
+    ##    date      mask_count No_mask_count
+    ##    <chr>          <dbl>         <dbl>
+    ##  1 7/12/2020       25.4           9.8
+    ##  2 7/13/2020       19.8           9.1
+    ##  3 7/14/2020       19.7           9.3
+    ##  4 7/15/2020       20.5           9.8
+    ##  5 7/16/2020       19.8           9.9
+    ##  6 7/17/2020       19.8           9.6
+    ##  7 7/18/2020       20.5           9.6
+    ##  8 7/19/2020       20             9.1
+    ##  9 7/20/2020       20.4           8.7
+    ## 10 7/21/2020       21.4           8.7
+    ## # … with 13 more rows
 
 ### Exercise 2
 
